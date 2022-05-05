@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 # practice.exam
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/findanna/practice.exam/workflows/R-CMD-check/badge.svg)](https://github.com/findanna/practice.exam/actions)
 <!-- badges: end -->
 
 The goal of practice.exam is to ...
