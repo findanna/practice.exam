@@ -9,7 +9,9 @@ Authors@R: c(
 Description: Package for practicing exam for package creation.
 License: MIT + file LICENSE
 Imports: 
-    magrittr
+    magrittr,
+    purrr,
+    readxl
 Suggests: 
     knitr,
     rmarkdown,
