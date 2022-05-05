@@ -85,7 +85,9 @@ possi_excel('inst/annee_2010.xlsx')
 ```
 
 ```{r tests-possi_excel}
-test_that("my_fun works", {
+test_that("possi_excel works", {
+  expect_null(possi_excel('inst/annee_2009.xlsx'))
+  expect_type(possi_excel('inst/annee_2010.xlsx'), "list")
 
 })
 ```
@@ -125,7 +127,9 @@ multi_read_excel(folder = "inst/")
 ```
 
 ```{r tests-multi_read_excel}
-test_that("my_fun works", {
+test_that("multi_read_excel works", {
+  expect_type(multi_read_excel('inst/'), "list")
+  expect_named(multi_read_excel('inst/'), list.files("inst/"))
 
 })
 ```
