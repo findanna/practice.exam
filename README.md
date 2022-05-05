@@ -15,7 +15,29 @@ You can install the development version of practice.exam from
 
 ``` r
 # install.packages("devtools")
+
 devtools::install_github("findanna/practice.exam")
+#> Downloading GitHub repo findanna/practice.exam@HEAD
+#> cli    (3.1.0  -> 3.3.0) [CRAN]
+#> glue   (1.6.0  -> 1.6.2) [CRAN]
+#> vctrs  (0.3.8  -> 0.4.1) [CRAN]
+#> rlang  (0.4.12 -> 1.0.2) [CRAN]
+#> crayon (1.4.2  -> 1.5.1) [CRAN]
+#> pillar (1.6.4  -> 1.7.0) [CRAN]
+#> fansi  (1.0.0  -> 1.0.3) [CRAN]
+#> tibble (3.1.6  -> 3.1.7) [CRAN]
+#> readxl (1.3.1  -> 1.4.0) [CRAN]
+#> Installing 9 packages: cli, glue, vctrs, rlang, crayon, pillar, fansi, tibble, readxl
+#> Installing packages into '/usr/local/lib/R/site-library'
+#> (as 'lib' is unspecified)
+#> * checking for file ‘/tmp/RtmphN8aYo/remotes1ad676c6d80c7/findanna-practice.exam-f2e5e0b/DESCRIPTION’ ... OK
+#> * preparing ‘practice.exam’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘practice.exam_0.0.0.9000.tar.gz’
+#> Installing package into '/usr/local/lib/R/site-library'
+#> (as 'lib' is unspecified)
 ```
 
 ## Example
@@ -24,32 +46,34 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(practice.exam)
-## basic example code
+multi_read_excel(folder = "inst/")
+#> $annee_2009.xlsx
+#> NULL
+#> 
+#> $annee_2010.xlsx
+#> NULL
+#> 
+#> $annee_2011.xlsx
+#> NULL
+#> 
+#> $annee_2012.xlsx
+#> NULL
+#> 
+#> $annee_2013.xlsx
+#> NULL
+#> 
+#> $annee_2014.xlsx
+#> NULL
+#> 
+#> $annee_2015.xlsx
+#> NULL
+#> 
+#> $annee_2016.xlsx
+#> NULL
+#> 
+#> $annee_2017.xlsx
+#> NULL
+#> 
+#> $annee_2018.xlsx
+#> NULL
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
