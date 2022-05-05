@@ -7,7 +7,7 @@
 multi_read_excel(folder = "data/")
 }
 \arguments{
-\item{A}{path to a folder (type = character)}
+\item{folder}{A path to a folder (type = character)}
 }
 \value{
 A list of data frames, after reading all available excel files in a folder
