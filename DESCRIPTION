@@ -1,0 +1,19 @@
+Package: practice.exam
+Title: Build A Package From Rmarkdown File
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Anna", "Mantsoki", , "anna.mantsoki@finddx.org", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1565-9313")),
+    person("FIND", role = "cph")
+  )
+Description: Package for practicing exam for package creation.
+License: MIT + file LICENSE
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
