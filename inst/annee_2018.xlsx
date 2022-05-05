@@ -1,0 +1,321 @@
+---
+title: "intro_dplyr"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+
+
+
+
+
+
+
+
+```
+
+
+# Chargement des packages
+
+## Précharger ici les packages {dplyr}, {prenoms} et d'autres au besoin
+```{r}
+
+
+
+
+```
+
+# Import
+
+## Avec l'instruction `data(prenoms)`importer le jeu de données d'exemple `prenoms` du package {prenoms}. Il s'agit d'une fonction qui va charger la base de données dans devoir utiliser la fleche d'assignation `<-`.
+
+
+```{r}
+
+```
+
+## Quel type d'objet est `prenoms`
+
+```{r}
+
+```
+
+
+## Explorer la base en utilisant les '5 fonctions à toujours lancer sur une base'
+
+```{r}
+
+
+
+
+
+```
+
+
+## En utilisant `glimpse`, regardez la structure de  `prenoms` .
+
+
+```{r}
+
+```
+
+
+# Ordonner le jeu de données 
+
+## Trier la base par année
+
+```{r}
+
+```
+
+## Trier la base par effectifs décroissants
+
+```{r}
+
+```
+
+## Trier la base par nom dans l'ordre alphabétique et par proportion décroissante
+
+```{r}
+
+```
+
+
+# Filtrer le jeu de données
+
+
+## N'afficher que les informations disponibles sur les prenoms masculins
+
+```{r}
+
+```
+
+
+## N'afficher que les lignes correspondantes aux filles nées en 2011
+
+
+```{r}
+
+
+
+
+```
+
+
+## Ne garder dans la base que les informations sur les prénoms 'Vincent','Diane','Colin','Sébastien' et 'Cervan'
+
+```{r}
+
+
+```
+
+# Sélection 
+
+## Ne garder que les colonnes ``name` `year` et `n` .
+
+```{r}
+
+```
+
+## Conserver toutes les variables sauf `sex` et `prop`
+```{r}
+
+```
+
+
+## Ne garder que les colonnes qui contiennent un "e" dans leur nom
+```{r}
+
+```
+
+
+## Ne garder que les colonnes dont le nom se terminent par un "e" 
+```{r}
+
+```
+
+
+
+# Transformation 
+
+## Multiplier par 100 et faites un arrondis pertinent sur la variable `prop`
+
+```{r}
+
+
+
+```
+
+
+
+
+## Actuellement la colonne `prop` est calculée par sexe et par année, rajouter une autre colonne proportion, calculée de manière globale sur l'ensemble du jeu de données 
+
+
+
+```{r}
+
+```
+
+
+# Résumer 
+
+
+## Combien y a-t-il  eu de naissancse en France entre 1900 et 2017 ?
+
+
+```{r}
+
+```
+
+## Combien y a-t-il  eu de naissances en france en 1925 ?
+
+
+```{r}
+
+
+
+```
+## Combien y a-t-il  eu de naissances par année en france ?
+
+
+```{r}
+
+
+
+
+```
+
+# Explorer
+
+## Combien de prénoms différents existent ils dans la base `prenoms` ?
+
+```{r}
+
+
+
+
+
+```
+
+
+
+## Combien de fois votre prenom a t'il été donné dans votre département votre année de naissance ?
+
+```{r}
+
+```
+
+
+
+## Retrouver le nom féminin le plus populaire à Paris en 1950.
+
+```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+## Quel sont les noms les plus donnés, par genre, année et département ?
+
+```{r}
+
+
+```
+
+
+
+## Quel est le nom qui a été le plus donné en valeur absolu tout confondu ?
+
+```{r}
+
+```
+
+
+
+## Quel est le nom de garçon le plus donné, tout confondu ?
+
+```{r}
+
+
+
+
+
+```
+
+
+
+
+## Fabriquer une base appelée `prenoms_france` qui supprime l'échelle du département (vous devez aggreger les départements par annnée et genre)
+
+
+## N'oubliez pas de rajouter une variable proportion à `prenoms_france`
+
+```{r}
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+## Dans la base `prenoms_france` , avec `case_when` dans la colonne sex, remplacer "M" par "Masculin" et "F" par "Féminin".
+
+```{r}
+
+
+
+
+
+
+
+```
+
+# Restructurer
+
+
+
+## Fabriquer une base avec 3 colonnes  : `year`, `nom masculin le plus donné`, `nom féminin le plus donné`, chaque ligne contient une année et 2 noms.
+
+```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+

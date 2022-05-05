@@ -25,9 +25,21 @@ library(practice.exam)
 -->
 
 
-# My function
 
-```{r examples-my_fun}
-my_fun()
+
+
+
+
+# possi_excel
+
+```{r examples-possi_excel}
+possi_excel('inst/annee_2009.xlsx')
+possi_excel('inst/annee_2010.xlsx')
+```
+
+# multi_read_excel
+
+```{r examples-multi_read_excel}
+multi_read_excel(folder = "inst/")
 ```
 

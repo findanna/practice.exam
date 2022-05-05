@@ -7,32 +7,129 @@ editor_options:
 
 ```{r development, include=FALSE}
 library(testthat)
+library(dplyr)
+library(readxl)
+library(purrr)
+pkgload::load_all()
+
+read_excel('inst/annee_2012.xlsx')
+read_excel('inst/annee_2009.xlsx')
+
+possi_excel <- possibly(read_excel, otherwise = NULL, quiet = TRUE)
+possi_excel('data/annee_2009.xlsx')
+
+
+files <- list.files(path = 'inst/', full.names = TRUE)
+files %>%
+  map(possi_excel)
+
+
+
+multi_read_excel <- function(folder = "data/"){
+  
+  files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
+  data <- files %>%
+    map(possi_excel)
+  return(data)
+    
+}
+multi_read_excel(folder = "inst/")
+
+
+
+multi_read_excel <- function(folder = "data/"){
+  
+  files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
+  filenames <- list.files(folder, pattern = '[.]xlsx$')
+  data <- files %>%
+    map(possi_excel)
+  names(data) <- filenames
+
+  return(data)
+    
+}
+
+multi_read_excel(folder = "inst/")
+
+
+
 ```
 
 <!--
  You need to run the 'description' chunk in the '0-dev_history.Rmd' file before continuing your code there.
 -->
 
-# My function
 
-```{r function-my_fun}
-#' my_fun Title
+
+
+
+
+# possi_excel
+```{r function-possi_excel}
+#' my_fun A function to read an excel file and return NULL if there is a problem with the file
 #'
-#' @return 1
+#' @param A filename or pathfile (type = character)
+#'
+#' @importFrom purrr possibly
+#' @importFrom readxl read_excel
+#' @return A data frame when the file is read successfully, or NULL if there is an error
 #' @export
+
+possi_excel <- possibly(read_excel, otherwise = NULL, quiet = TRUE)
+
+```
+
+```{r examples-possi_excel}
+possi_excel('inst/annee_2009.xlsx')
+possi_excel('inst/annee_2010.xlsx')
+```
+
+```{r tests-possi_excel}
+test_that("possi_excel works", {
+  expect_null(possi_excel('inst/annee_2009.xlsx'))
+  expect_type(possi_excel('inst/annee_2010.xlsx'), "list")
+
+})
+```
+
+
+
+
+
+# multi_read_excel
+
+```{r function-multi_read_excel}
+#' my_fun A function to read all available excel files in a folder
 #'
-#' @examples
-my_fun <- function() {
-  1
+#' @param A path to a folder (type = character)
+#'
+#' @importFrom purrr possibly map
+#' @importFrom readxl read_excel
+#' @return A list of data frames, after reading all available excel files in a folder
+#' @export
+
+multi_read_excel <- function(folder = "data/"){
+  
+  files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
+  filenames <- list.files(folder, pattern = '[.]xlsx$')
+  data <- files %>%
+    map(possi_excel)
+  names(data) <- filenames
+
+  return(data)
+    
 }
+
 ```
 
-```{r examples-my_fun}
-my_fun()
+```{r examples-multi_read_excel}
+multi_read_excel(folder = "inst/")
 ```
 
-```{r tests-my_fun}
-test_that("my_fun works", {
+```{r tests-multi_read_excel}
+test_that("multi_read_excel works", {
+  expect_type(multi_read_excel('inst/'), "list")
+  expect_named(multi_read_excel('inst/'), list.files("inst/"))
 
 })
 ```
