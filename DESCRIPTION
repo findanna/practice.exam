@@ -8,6 +8,8 @@ Authors@R: c(
   )
 Description: Package for practicing exam for package creation.
 License: MIT + file LICENSE
+Imports: 
+    magrittr
 Suggests: 
     knitr,
     rmarkdown,
