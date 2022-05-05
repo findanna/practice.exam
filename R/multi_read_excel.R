@@ -2,7 +2,7 @@
 
 #' my_fun A function to read all available excel files in a folder
 #'
-#' @param A path to a folder (type = character)
+#' @param folder A path to a folder (type = character)
 #'
 #' @importFrom purrr possibly map
 #' @importFrom readxl read_excel

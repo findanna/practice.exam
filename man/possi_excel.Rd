@@ -7,7 +7,7 @@
 possi_excel(...)
 }
 \arguments{
-\item{A}{filename or pathfile (type = character)}
+\item{...}{pathfile (type = character)}
 }
 \value{
 A data frame when the file is read successfully, or NULL if there is an error

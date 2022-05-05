@@ -2,7 +2,7 @@
 
 #' my_fun A function to read an excel file and return NULL if there is a problem with the file
 #'
-#' @param A filename or pathfile (type = character)
+#' @param ...  pathfile (type = character)
 #'
 #' @importFrom purrr possibly
 #' @importFrom readxl read_excel

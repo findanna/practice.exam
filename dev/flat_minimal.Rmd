@@ -15,41 +15,41 @@ pkgload::load_all()
 read_excel('inst/annee_2012.xlsx')
 read_excel('inst/annee_2009.xlsx')
 
-possi_excel <- possibly(read_excel, otherwise = NULL, quiet = TRUE)
-possi_excel('data/annee_2009.xlsx')
+# possi_excel <- possibly(read_excel, otherwise = NULL, quiet = TRUE)
+# possi_excel('data/annee_2009.xlsx')
+# 
+# 
+# files <- list.files(path = 'inst/', full.names = TRUE)
+# files %>%
+#   map(possi_excel)
+# 
+# 
+# 
+# multi_read_excel <- function(folder = "data/"){
+#   
+#   files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
+#   data <- files %>%
+#     map(possi_excel)
+#   return(data)
+#     
+# }
+# multi_read_excel(folder = "inst/")
+# 
+# 
 
-
-files <- list.files(path = 'inst/', full.names = TRUE)
-files %>%
-  map(possi_excel)
-
-
-
-multi_read_excel <- function(folder = "data/"){
-  
-  files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
-  data <- files %>%
-    map(possi_excel)
-  return(data)
-    
-}
-multi_read_excel(folder = "inst/")
-
-
-
-multi_read_excel <- function(folder = "data/"){
-  
-  files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
-  filenames <- list.files(folder, pattern = '[.]xlsx$')
-  data <- files %>%
-    map(possi_excel)
-  names(data) <- filenames
-
-  return(data)
-    
-}
-
-multi_read_excel(folder = "inst/")
+# multi_read_excel <- function(folder = "data/"){
+#   
+#   files <- list.files(folder, full.names = TRUE, pattern = '[.]xlsx$')
+#   filenames <- list.files(folder, pattern = '[.]xlsx$')
+#   data <- files %>%
+#     map(possi_excel)
+#   names(data) <- filenames
+# 
+#   return(data)
+#     
+# }
+# 
+# multi_read_excel(folder = "inst/")
 
 
 
@@ -68,7 +68,7 @@ multi_read_excel(folder = "inst/")
 ```{r function-possi_excel}
 #' my_fun A function to read an excel file and return NULL if there is a problem with the file
 #'
-#' @param A filename or pathfile (type = character)
+#' @param ...  pathfile (type = character)
 #'
 #' @importFrom purrr possibly
 #' @importFrom readxl read_excel
@@ -101,7 +101,7 @@ test_that("possi_excel works", {
 ```{r function-multi_read_excel}
 #' my_fun A function to read all available excel files in a folder
 #'
-#' @param A path to a folder (type = character)
+#' @param folder A path to a folder (type = character)
 #'
 #' @importFrom purrr possibly map
 #' @importFrom readxl read_excel
